@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | IP Address Tracker</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.1/dist/leaflet.css" integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin="" />
+  <script src="script.js" charset="utf-8" defer></script>
+<script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js" integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
+
+</head>
+<body>
+
+
+   <header class="head">
+     <h1 class="label">IP Address Tracker</h1>
+    <div class="labelAndInput">
+
+     <div class="inputDiv">
+      <input type="text" class="input" placeholder="Search for any IP address or domain">
+      <div class="imageDiv">
+       <img src="images/icon-arrow.svg">
+      </div>
+
+     </div>
+    </div>
+    <div class="info">
+     <section class="section">
+      <h4>IP Address</h4>
+      <h1 class="ipAddress">120.20.44.8</h1>
+     </section>
+     <section class="section">
+      <h4>Location</h4>
+      <h1 class="location">NY</h1>
+     </section>
+     <section class="section">
+      <h4>Timezone</h4>
+      <h1 class="timezone">UTC +10</h1>
+     </section>
+     <section class="section">
+      <h4>ISP</h4>
+      <h1 class="isp">SpaceX Starlink</h1>
+     </section>
+    </div>
+   </header>
+  <div id="map" class="this"></div>
+
+  <script type="text/javascript">
+
+  </script>
+</body>
+</html>
