@@ -1,4 +1,3 @@
-
 let searchBtn = document.querySelector('.imageDiv');
 let ipAddress = document.querySelector('.ipAddress');
 let timezone = document.querySelector('.timezone');
@@ -12,15 +11,26 @@ let t = false;
 async function getLocation() {
   let location = document.querySelector('.location');
   let userInput = document.querySelector('.input').value;
+  let r = /\b\w+\.\w{3}\b/;
+  let ip = /\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/;
+
   if (map !== undefined && map !== null) {
    map = map.remove();
   }
+  // laasri@gmail.org
   /*
   var container = L.DomUtil.get('map');
        if(container != null){
          container._leaflet_id = null;
        } */
- let response = await fetch(`https://geo.ipify.org/api/v2/country,city,vpn?apiKey=at_Wn2jjzrFpgEhhziyUqb9HqoRzgOMe&ipAddress=${userInput}`);
+       fetchUrl = '';
+    if (r.test(userInput)) {
+      fetchUrl = `https://geo.ipify.org/api/v2/country,city,vpn?apiKey=at_Wn2jjzrFpgEhhziyUqb9HqoRzgOMe&domain=${userInput}`;
+    } else {
+      fetchUrl = `https://geo.ipify.org/api/v2/country,city,vpn?apiKey=at_Wn2jjzrFpgEhhziyUqb9HqoRzgOMe&ipAddress=${userInput}`;
+
+    }
+ let response = await fetch(fetchUrl);
  let res = await response.json();
  latitutde = res.location.lat;
  langitude = res.location.lng;
@@ -46,12 +56,3 @@ async function getLocation() {
 searchBtn.addEventListener('click', (e) => {
    getLocation();
 })
-
-/*
-const searchBtn = document.querySelector('.imageDiv');
-const userInput = document.querySelector('.input').value;
-const isp = document.querySelector('.isp');
-const timezone = document.querySelector('.timezone');
-const ipAddress = document.querySelector('.ipAddress');
-const location = document.querySelector('.location');
-*/
